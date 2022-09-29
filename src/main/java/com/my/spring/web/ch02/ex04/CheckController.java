@@ -1,6 +1,6 @@
 package com.my.spring.web.ch02.ex04;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("ch02/ex04")
@@ -35,13 +36,22 @@ public class CheckController {
 		return "ch02/ex04/radioOut";
 	}
 	
-	@PostMapping("checkbox") //n개의 값을선택할때
-	public String checkbox(ArrayList<String> fruits) {
-		for(String fruit: fruits)
-		//fruits.add(fruit);
-		fruits.add(fruit);
-		
-		System.out.println(fruits);
-		return "ch02/ex04/checkboxIn";
+//	@PostMapping("checkbox") //n개의 값을선택할때
+//	public String checkbox(@RequestParam ArrayList<String> fruit) {
+//		System.out.println(fruit);
+//		return null;
+//	}
+//	
+//	@PostMapping("checkbox") //n개의 값을선택할때
+//	public String checkbox(@RequestParam("fruit") List<String> fruits) {
+//		System.out.println(fruits);
+//		return null;
+//	}
+	
+	@PostMapping("checkbox") 
+	public String checkbox(@RequestParam("fruit") List<String> fruits, Model model) {
+		model.addAttribute("fruits", fruits);
+		return "ch02/ex04/checkboxOut";
 	}
+		
 }
