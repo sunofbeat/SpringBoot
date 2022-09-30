@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller("ch02.ex06")
 @RequestMapping("ch02/ex06")
 public class UserController {
-	@GetMapping("login")    	//required=false 쿠키가 없으면 말고~
+	@GetMapping("login")    	//required=false 쿠키가 있으면 쓰고 없으면 말고~
 	public String loginIn(@CookieValue(required=false) String userId,
 				@ModelAttribute("user") UserDto user) {
 		if(userId != null) user.setUserId(userId);

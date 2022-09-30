@@ -17,7 +17,6 @@ public class NumCotroller {
 		return "ch02/home/numIn";
 	}
 
-	
 	@GetMapping("numOut")
 	public String numOut(Number num) {
 		return "ch02/home/numOut";
