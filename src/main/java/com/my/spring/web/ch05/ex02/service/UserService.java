@@ -1,4 +1,4 @@
-package com.my.spring.web.ch05.service;
+package com.my.spring.web.ch05.ex02.service;
 
 import java.util.List;
 

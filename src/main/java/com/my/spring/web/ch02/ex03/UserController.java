@@ -17,5 +17,4 @@ public class UserController {
 	public String userOut(User user) {
 		return "ch02/ex03/userOut";
 	}
-
 }

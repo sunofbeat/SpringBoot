@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("ch02/ex01")
-public class UserController {
+public class UserController { //Controller는 handler의 집합
 	@GetMapping("11")
 	public ModelAndView handler11(ModelAndView mv) {
 								//model name, model value
@@ -19,7 +19,7 @@ public class UserController {
 		return mv;
 	}
 	
-	@GetMapping("21")
+	@GetMapping("21")//리턴값을 뷰로 받을때 String으로 쓴다
 	public String handler21(Model model) {
 		model.addAttribute("user", new User("한아름", 21));
 		return "ch02/ex01/user";
@@ -30,7 +30,7 @@ public class UserController {
 		return "ch02/ex01/user";
 	}
 	
-	@GetMapping("31")
+	@GetMapping("31")//리턴타입이 void @GetMapping("x")가 뷰네임이 돼서 디스패처에 전달한다
 	public void handler31(User user) {
 		user.setUserName("양승일");
 		user.setAge(31);
@@ -42,7 +42,7 @@ public class UserController {
 		user.setAge(32);
 	}
 	
-	@GetMapping("41")
+	@GetMapping("41") //리턴타입이 모델이다
 	public User handler41(User user) {
 		user.setUserName("김가람");
 		user.setAge(41);
